@@ -3,6 +3,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
+vim.cmd("set autoindent")
 vim.g.mapleader= " "
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -23,6 +24,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
+
 local plugins = {
     { "catppuccin/nvim", lazy = false, name = "catppuccin", priority = 1000 },
     { "nvim-telescope/telescope.nvim", tag = "0.1.8",
@@ -38,14 +40,8 @@ local plugins = {
         }
     }
 }
-
+-- load lua/plugins.lua
 require("lazy").setup(plugins, opts)
-
--- require catppuccin plugin
-require("catppuccin").setup()
-
--- set the colorscheme
-vim.cmd.colorscheme "catppuccin"
 
 -- require and configure telescope
 local builtin = require("telescope.builtin")
@@ -82,4 +78,10 @@ config.setup({
 
 -- require and configure neo-tree
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+
+-- require catppuccin plugin
+require("catppuccin").setup()
+
+-- set the colorscheme
+vim.cmd.colorscheme "catppuccin"
 
