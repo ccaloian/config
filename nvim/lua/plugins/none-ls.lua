@@ -10,6 +10,6 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+        vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "LSP [F]or[M]at File" })
     end,
 }
