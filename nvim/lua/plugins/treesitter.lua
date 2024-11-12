@@ -7,6 +7,10 @@ return {
             -- auto_install = true,
             ensure_installed = {
                 "bash",
+                "c",
+                "cmake",
+                "cpp",
+                "cuda",
                 "dockerfile",
                 "go",
                 "gomod",

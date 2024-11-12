@@ -2,7 +2,13 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+                ensure_installed = {
+                    "clang_format",
+                    "gofumpt",
+                    "stylua",
+                },
+            })
 		end,
 	},
 	{
@@ -10,6 +16,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+                    "clangd",
 					"gopls",
 					"lua_ls",
 					"ruff_lsp",
@@ -36,6 +43,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
 
