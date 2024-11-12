@@ -8,6 +8,6 @@ return {
     end,
 	keys = {
 		{ "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "MarkdownPreview" },
-		{ "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "MarkdownPreviewToggle" },
+		{ "<leader>M", "<cmd>MarkdownPreviewToggle<cr>", desc = "MarkdownPreviewToggle" },
 	},
 }
