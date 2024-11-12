@@ -10,10 +10,10 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- Basic movement keybinds, these make navigating splits easier
-vim.keymap.set("n", "<c-j>", "<c-w><c-j>", { desc = "Move to split down" })
-vim.keymap.set("n", "<c-k>", "<c-w><c-k>", { desc = "Move to split up" })
-vim.keymap.set("n", "<c-l>", "<c-w><c-l>", { desc = "Move to split right" })
-vim.keymap.set("n", "<c-h>", "<c-w><c-h>", { desc = "Move to split left" })
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { desc = "Move to split left" })
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { desc = "Move to split down" })
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { desc = "Move to split up" })
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { desc = "Move to split right" })
 
 -- Set highlight on search
 vim.o.hlsearch = false
