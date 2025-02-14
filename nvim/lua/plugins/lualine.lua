@@ -6,5 +6,6 @@ return {
                 theme = "catppuccin"
             }
         })
+        -- require("transparent").clear_prefix("lualine")
     end
 }

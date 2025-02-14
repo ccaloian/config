@@ -8,6 +8,7 @@ return {
     },
     config = function()
         vim.keymap.set("n", "<leader>nt", ":Neotree filesystem reveal left<CR>", { desc = "[N]eo[T]ree" })
+        require("transparent").clear_prefix("NeoTree")
     end
 }
 
