@@ -7,6 +7,7 @@ return {
                     "clang_format",
                     "gofumpt",
                     "stylua",
+                    "ruff",
                 },
             })
 		end,
@@ -19,7 +20,7 @@ return {
                     "clangd",
 					"gopls",
 					"lua_ls",
-					"ruff_lsp",
+					"ruff",
 					"rust_analyzer",
 				},
 			})
@@ -39,8 +40,9 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.ruff_lsp.setup({
+			lspconfig.ruff.setup({
 				capabilities = capabilities,
+                cmd = { "ruff", "server" },
 			})
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
