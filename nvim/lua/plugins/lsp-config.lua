@@ -1,33 +1,22 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup({
-                ensure_installed = {
-                    "clang_format",
-                    "gofumpt",
-                    "stylua",
-                    "ruff",
-                },
-            })
-		end,
+		config = true,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-                    "clangd",
-					"gopls",
-					"lua_ls",
-					"ruff",
-					"rust_analyzer",
-				},
-			})
-		end,
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+        opts = {
+            automatic_installation = true,
+        },
 	},
 	{
 		"neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -40,14 +29,14 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+            })
 			lspconfig.ruff.setup({
 				capabilities = capabilities,
                 cmd = { "ruff", "server" },
 			})
 			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
 
