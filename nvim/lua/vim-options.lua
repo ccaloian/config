@@ -52,6 +52,12 @@ vim.o.completeopt = "menuone,noselect"
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Global status line
+vim.o.laststatus = 3
+
+-- Set winbar to show filename
+vim.o.winbar = "%=%m %f"
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
