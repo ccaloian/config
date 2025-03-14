@@ -1,6 +1,11 @@
 return {
 	{ "tpope/vim-fugitive" },
 	{
+		"ruifm/gitlinker.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = true,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {},
 		keys = function()
