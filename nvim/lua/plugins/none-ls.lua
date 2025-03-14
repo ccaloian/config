@@ -26,4 +26,7 @@ return {
 			automatic_installation = true,
 		},
 	},
+    {
+        "imsnif/kdl.vim"
+    },
 }
