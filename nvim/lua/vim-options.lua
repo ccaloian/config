@@ -5,6 +5,8 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set autoindent")
 
 vim.g.mapleader = " "
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 
 vim.wo.number = true
 vim.wo.relativenumber = true
