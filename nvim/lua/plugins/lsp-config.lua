@@ -1,22 +1,24 @@
 return {
 	{
 		"williamboman/mason.nvim",
+        -- version = "^1.0.0",
 		config = true,
 	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-		},
-		opts = {
-			automatic_installation = true,
-		},
-	},
+	-- {
+	-- 	"williamboman/mason-lspconfig.nvim",
+ --        -- version = "^1.0.0",
+	-- 	dependencies = {
+	-- 		"williamboman/mason.nvim",
+	-- 	},
+	-- 	opts = {
+	-- 		automatic_installation = true,
+	-- 	},
+	-- },
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
+		-- dependencies = {
+		-- 	"williamboman/mason-lspconfig.nvim",
+		-- },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
