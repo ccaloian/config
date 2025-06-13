@@ -18,7 +18,6 @@
   "lspsaga.nvim": { "branch": "main", "commit": "920b1253e1a26732e53fac78412f6da7f674671d" },
   "lualine.nvim": { "branch": "master", "commit": "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
-  "mason-lspconfig.nvim": { "branch": "main", "commit": "87888865fa1ce1928a25b9abbea8c8f7839bf522" },
   "mason-null-ls.nvim": { "branch": "main", "commit": "de19726de7260c68d94691afb057fa73d3cc53e7" },
   "mason.nvim": { "branch": "main", "commit": "8024d64e1330b86044fed4c8494ef3dcd483a67c" },
   "multiple-cursors.nvim": { "branch": "main", "commit": "1ac15d047a4b265cc2389957bcc56ee561b29e02" },
@@ -46,6 +45,7 @@
   "vim-test": { "branch": "master", "commit": "b0c3e13249699a522c8b472ff79eff40d2935476" },
   "vim-tmux-navigator": { "branch": "master", "commit": "ad4c04239d970981942d6a3e1195a770df09d0d7" },
   "vimux": { "branch": "master", "commit": "7db6b2f79d432ee3820668b1d4625311dbe1d0ad" },
+  "visual-whitespace.nvim": { "branch": "main", "commit": "b5ab2ea698a07ef0fa042d0c61667c3cb06e92c8" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" }
 }
