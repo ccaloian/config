@@ -7,9 +7,9 @@ vim.opt.autoindent = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
---  Other symbols: tab:↦\\ ,extends:>,precedes:<,space:·,lead:‹,trail:›
+--  Other symbols: tab:↦\\ ,extends:>,precedes:<,space:·,lead:‹,trail:›,eol:↵
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣", eol = "↵" }
+vim.opt.listchars = { tab = "» ", lead = "·", trail = "·", nbsp = "␣" }
 
 -- Set highlight on search
 vim.opt.hlsearch = true
