@@ -1,0 +1,33 @@
+layout {
+    pane split_direction="vertical" {
+        pane
+    }
+    pane size=1 borderless=true {
+        plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm"{
+            color_mantle "#181825"
+            color_blue "#89b4fa"
+            color_green "#a6e3a1"
+            color_yellow "#f9e2af"
+            color_red "#f38ba8"
+            color_surface "#313244"
+
+            format_left  "{mode}{tabs}"
+            format_space  "#[bg=$mantle,fg=$mantle] "
+
+            mode_locked "#[bg=$blue,fg=$mantle,bold] LOCKED #[bg=$mantle,fg=$blue]"
+            mode_normal "#[bg=$green,fg=$mantle,bold] NORMAL #[bg=$mantle,fg=$green]"
+            mode_pane "#[bg=$yellow,fg=$mantle,bold] PANE #[bg=$mantle,fg=$yellow]"
+            mode_tab "#[bg=$yellow,fg=$mantle,bold] TAB #[bg=$mantle,fg=$yellow]"
+            mode_resize "#[bg=$red,fg=$mantle,bold] {name} #[bg=$mantle,fg=$red]"
+            mode_default_to_mode "resize"
+
+            tab_normal "#[bg=$surface,fg=$mantle] #[bg=$surface,fg=$green,bold]{index}{floating_indicator} #[bg=$mantle,fg=$surface]"
+            tab_normal_fullscreen  "#[bg=$surface,fg=$mantle] #[bg=$surface,fg=$green,bold]{index}{fullscreen_indicator} #[bg=$mantle,fg=$surface]"
+            tab_active "#[bg=$green,fg=$mantle] #[bg=$green,fg=$mantle,bold]{index}{floating_indicator} #[bg=$mantle,fg=$green]"
+            tab_active_fullscreen "#[bg=$green,fg=$mantle] #[bg=$green,fg=$mantle,bold]{index}{fullscreen_indicator} #[bg=$mantle,fg=$green]"
+
+            tab_fullscreen_indicator " ◰"
+            tab_floating_indicator   " ⬚"
+        }
+    }
+}
