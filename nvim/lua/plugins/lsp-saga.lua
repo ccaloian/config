@@ -11,6 +11,7 @@ return {
                 enable_in_insert = false,
             }
         })
+		vim.keymap.set("n", "<leader>lf", ":Lspsaga finder<CR>", { desc = "[L]spsaga [F]inder" })
 		vim.keymap.set("n", "<leader>lo", ":Lspsaga outline<CR>", { desc = "[L]spsaga [O]utline" })
 		vim.keymap.set("n", "<leader>lt", ":Lspsaga term_toggle<CR>", { desc = "[L]spsaga [T]erminal" })
 	end,
