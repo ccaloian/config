@@ -1,4 +1,8 @@
 # Update tmux plugins using git subtree
+# Assumes remotes are already added:
+# git remote add -f catppuccin-tmux https://github.com/catppuccin/tmux
+# git remote add -f tpm https://github.com/tmux-plugins/tpm
+# git remote add -f vim-tmux-navigator https://github.com/christoomey/vim-tmux-navigator
 
 .PHONY: update-catppuccin
 update-catppuccin:
