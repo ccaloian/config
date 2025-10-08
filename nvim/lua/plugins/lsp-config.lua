@@ -33,6 +33,7 @@ return {
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 			lspconfig.taplo.setup({ capabilities = capabilities })
 			lspconfig.yamlls.setup({ capabilities = capabilities })
+			lspconfig.zls.setup({ capabilities = capabilities })
 
 			-- keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[K] Hover documentation" })
