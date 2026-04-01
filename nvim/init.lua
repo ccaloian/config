@@ -22,11 +22,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load options and plugins
 require("vim-options")
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+	rocks = {
+		enabled = true,
+		hererocks = false,
+	},
+})
 
 vim.env.PATH = vim.env.HOME .. "/.nvm/versions/node/v22.22.2/bin:" .. vim.env.PATH
 
---
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/nvim-lspconfig")
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/mason.nvim")
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/mason-lspconfig.nvim")
