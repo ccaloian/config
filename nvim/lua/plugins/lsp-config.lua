@@ -1,12 +1,12 @@
 return {
 	{
 		"williamboman/mason.nvim",
-        -- version = "^1.0.0",
+		-- version = "^1.0.0",
 		config = true,
 	},
 	-- {
 	-- 	"williamboman/mason-lspconfig.nvim",
- --        -- version = "^1.0.0",
+	--        -- version = "^1.0.0",
 	-- 	dependencies = {
 	-- 		"williamboman/mason.nvim",
 	-- 	},
@@ -28,8 +28,19 @@ return {
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.gopls.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.pyright.setup({ capabilities = capabilities })
-			lspconfig.ruff.setup({ capabilities = capabilities, cmd = { "ruff", "server", "--preview"} })
+			lspconfig.basedpyright.setup({
+				capabilities = capabilities,
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "standard", -- 'off' if it's too noisy
+							autoImportCompletions = true,
+							diagnosticMode = "openFilesOnly",
+						},
+					},
+				},
+			})
+			lspconfig.ruff.setup({ capabilities = capabilities, cmd = { "ruff", "server", "--preview" } })
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 			lspconfig.taplo.setup({ capabilities = capabilities })
 			lspconfig.yamlls.setup({ capabilities = capabilities })
