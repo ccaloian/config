@@ -22,10 +22,38 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load options and plugins
 require("vim-options")
+
+-- per filetype configs
+local indents = {
+	yaml = { sw = 2 },
+	json = { sw = 2 },
+	lua = { sw = 2 },
+	sh = { sw = 2 },
+	python = { sw = 4 },
+	rust = { sw = 4 },
+	go = { sw = 4, tabs = true },
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = vim.tbl_keys(indents),
+	callback = function(ev)
+		local c = indents[vim.bo[ev.buf].filetype]
+		local b = vim.bo[ev.buf]
+		b.expandtab = not c.tabs
+		b.shiftwidth = c.sw
+		b.tabstop = c.sw
+		b.softtabstop = c.tabs and 0 or c.sw
+	end,
+})
+
+-- lazy configs
 require("lazy").setup("plugins", {
 	rocks = {
 		enabled = true,
 		hererocks = false,
+	},
+	git = {
+		timeout = 600,
 	},
 })
 
