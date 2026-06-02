@@ -16,43 +16,62 @@ return {
 	-- },
 	{
 		"neovim/nvim-lspconfig",
-		-- dependencies = {
-		-- 	"williamboman/mason-lspconfig.nvim",
-		-- },
+		-- dependencies = { "williamboman/mason-lspconfig.nvim" },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local lspconfig = require("lspconfig")
-
-			-- config setup
-			lspconfig.bashls.setup({ capabilities = capabilities })
-			lspconfig.gopls.setup({ capabilities = capabilities })
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.basedpyright.setup({
+			-- Defaults merged into every server's config.
+			vim.lsp.config("*", {
 				capabilities = capabilities,
+			})
+
+			-- Per-server overrides — only declare these where you actually
+			-- diverge from nvim-lspconfig's shipped defaults.
+			vim.lsp.config("basedpyright", {
 				settings = {
 					basedpyright = {
 						analysis = {
-							typeCheckingMode = "standard", -- 'off' if it's too noisy
+							typeCheckingMode = "standard", -- "off" if too noisy
 							autoImportCompletions = true,
 							diagnosticMode = "openFilesOnly",
 						},
 					},
 				},
 			})
-			lspconfig.ruff.setup({ capabilities = capabilities, cmd = { "ruff", "server", "--preview" } })
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-			lspconfig.taplo.setup({ capabilities = capabilities })
-			lspconfig.yamlls.setup({ capabilities = capabilities })
-			lspconfig.zls.setup({ capabilities = capabilities })
 
-			-- keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[K] Hover documentation" })
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition" })
-			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "[G]o to [I]mplementation" })
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "[G]o to [R]eferences" })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[N]ame" })
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+			vim.lsp.config("ruff", {
+				cmd = { "ruff", "server", "--preview" },
+			})
+
+			-- Servers to enable. The ones without their own vim.lsp.config call
+			-- still pick up the "*" defaults plus nvim-lspconfig's per-server
+			-- defaults from lsp/<name>.lua.
+			vim.lsp.enable({
+				"bashls",
+				"gopls",
+				"lua_ls",
+				"basedpyright",
+				"ruff",
+				"rust_analyzer",
+				"taplo",
+				"yamlls",
+				"zls",
+			})
+
+			-- Buffer-local keymaps when a server attaches.
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(ev)
+					local map = function(mode, lhs, rhs, desc)
+						vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
+					end
+					map("n", "K", vim.lsp.buf.hover, "[K] Hover documentation")
+					map("n", "<leader>gd", vim.lsp.buf.definition, "[G]o to [D]efinition")
+					map("n", "<leader>gi", vim.lsp.buf.implementation, "[G]o to [I]mplementation")
+					map("n", "<leader>gr", vim.lsp.buf.references, "[G]o to [R]eferences")
+					map("n", "<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
+					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+				end,
+			})
 		end,
 	},
 }
