@@ -59,6 +59,14 @@ require("lazy").setup("plugins", {
 
 vim.env.PATH = vim.env.HOME .. "/.nvm/versions/node/v22.22.2/bin:" .. vim.env.PATH
 
+if vim.env.WAYLAND_DISPLAY and vim.uv.fs_stat(
+  (vim.env.XDG_RUNTIME_DIR or "") .. "/" .. vim.env.WAYLAND_DISPLAY
+) then
+  -- wl-copy will work; leave clipboard provider as-is
+else
+  vim.opt.clipboard = ""
+end
+
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/nvim-lspconfig")
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/mason.nvim")
 -- vim.opt.rtp:append(vim.fn.stdpath("config") .. "/mason-lspconfig.nvim")
